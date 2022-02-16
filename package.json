@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/math-base-special-clamp",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Restrict a double-precision floating-point number to a specified range.",
   "license": "Apache-2.0",
   "author": {
