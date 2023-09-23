@@ -52,7 +52,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import clamp from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-clamp@deno/mod.js';
+import clamp from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-clamp@v0.1.0-deno/mod.js';
 ```
 
 #### clamp( v, min, max )
@@ -111,7 +111,7 @@ v = clamp( 3.14, 0.0, NaN );
 
 ```javascript
 import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@deno/mod.js';
-import clamp from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-clamp@deno/mod.js';
+import clamp from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-clamp@v0.1.0-deno/mod.js';
 
 var min;
 var max;
