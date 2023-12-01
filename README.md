@@ -45,14 +45,30 @@ limitations under the License.
 
 <!-- Package usage documentation. -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/math-base-special-clamp
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import clamp from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-clamp@deno/mod.js';
+var clamp = require( '@stdlib/math-base-special-clamp' );
 ```
 
 #### clamp( v, min, max )
@@ -110,8 +126,8 @@ v = clamp( 3.14, 0.0, NaN );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@deno/mod.js';
-import clamp from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-clamp@deno/mod.js';
+var discreteUniform = require( '@stdlib/random-base-discrete-uniform' );
+var clamp = require( '@stdlib/math-base-special-clamp' );
 
 var min;
 var max;
@@ -132,7 +148,90 @@ for ( i = 0; i < 100; i++ ) {
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/math/base/special/clamp.h"
+```
+
+#### stdlib_base_clamp( v, min, max )
+
+Restricts a double-precision floating-point number to a specified range.
+
+```c
+double y = stdlib_base_clamp( -3.14, 0.0, 5.0 );
+// returns 0.0
+```
+
+The function accepts the following arguments:
+
+-   **v**: `[in] double` input value.
+-   **min**: `[in] double` minimum value.
+-   **max**: `[in] double` maximum value.
+
+```c
+double stdlib_base_clamp( const double v, const double min, const double max );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/math/base/special/clamp.h"
+#include <stdio.h>
+
+int main( void ) {
+    const double x[] = { 3.14, -3.14, 0.0, 0.0/0.0 };
+
+    double y;
+    int i;
+    for ( i = 0; i < 4; i++ ) {
+        y = stdlib_base_clamp( x[ i ], -3.0, 3.0 );
+        printf( "clamp(%lf, %lf, %lf) = %lf\n", x[ i ], -3.0, 3.0, y );
+    }
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section to include cited references. If references are included, add a horizontal rule *before* the section. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
 
@@ -166,7 +265,7 @@ for ( i = 0; i < 100; i++ ) {
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -228,9 +327,9 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/math/base/special/clampf]: https://github.com/stdlib-js/math-base-special-clampf/tree/deno
+[@stdlib/math/base/special/clampf]: https://github.com/stdlib-js/math-base-special-clampf
 
-[@stdlib/math/base/special/wrap]: https://github.com/stdlib-js/math-base-special-wrap/tree/deno
+[@stdlib/math/base/special/wrap]: https://github.com/stdlib-js/math-base-special-wrap
 
 <!-- </related-links> -->
 
