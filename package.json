@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/math-base-special-clamp",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Restrict a double-precision floating-point number to a specified range.",
   "license": "Apache-2.0",
   "author": {
@@ -49,7 +49,7 @@
     "@stdlib/math-base-assert-is-positive-zero": "^0.2.1",
     "@stdlib/random-base-discrete-uniform": "^0.2.1",
     "@stdlib/random-base-randu": "^0.2.1",
-    "@stdlib/utils-try-require": "^0.2.1",
+    "@stdlib/utils-try-require": "^0.2.2",
     "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
     "istanbul": "^0.4.1",
     "tap-min": "git+https://github.com/Planeshifter/tap-min.git",
