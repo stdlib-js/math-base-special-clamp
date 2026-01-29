@@ -45,38 +45,32 @@ limitations under the License.
 
 <!-- Package usage documentation. -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/math-base-special-clamp
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-clamp = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-clamp@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var clamp = require( 'path/to/vendor/umd/math-base-special-clamp/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-clamp@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.clamp;
-})();
-</script>
+var clamp = require( '@stdlib/math-base-special-clamp' );
 ```
 
 #### clamp( v, min, max )
@@ -133,15 +127,10 @@ v = clamp( 3.14, 0.0, NaN );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each-map@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-clamp@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
+var logEachMap = require( '@stdlib/console-log-each-map' );
+var clamp = require( '@stdlib/math-base-special-clamp' );
 
 var opts = {
     'dtype': 'float64'
@@ -151,11 +140,6 @@ var max = discreteUniform( 100, 5, 15, opts );
 var v = discreteUniform( 100, -20, 20, opts );
 
 logEachMap( 'clamp(%d,%d,%d) => %d', v, min, max, clamp );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -164,7 +148,90 @@ logEachMap( 'clamp(%d,%d,%d) => %d', v, min, max, clamp );
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/math/base/special/clamp.h"
+```
+
+#### stdlib_base_clamp( v, min, max )
+
+Restricts a double-precision floating-point number to a specified range.
+
+```c
+double y = stdlib_base_clamp( -3.14, 0.0, 5.0 );
+// returns 0.0
+```
+
+The function accepts the following arguments:
+
+-   **v**: `[in] double` input value.
+-   **min**: `[in] double` minimum value.
+-   **max**: `[in] double` maximum value.
+
+```c
+double stdlib_base_clamp( const double v, const double min, const double max );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/math/base/special/clamp.h"
+#include <stdio.h>
+
+int main( void ) {
+    const double x[] = { 3.14, -3.14, 0.0, 0.0/0.0 };
+
+    double y;
+    int i;
+    for ( i = 0; i < 4; i++ ) {
+        y = stdlib_base_clamp( x[ i ], -3.0, 3.0 );
+        printf( "clamp(%lf, %lf, %lf) = %lf\n", x[ i ], -3.0, 3.0, y );
+    }
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section to include cited references. If references are included, add a horizontal rule *before* the section. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
 
@@ -215,7 +282,7 @@ See [LICENSE][stdlib-license].
 
 ## Copyright
 
-Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
+Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 
 </section>
 
@@ -241,8 +308,8 @@ Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 -->
 
-[chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
-[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im
+[chat-image]: https://img.shields.io/badge/zulip-join_chat-brightgreen.svg
+[chat-url]: https://stdlib.zulipchat.com
 
 [stdlib]: https://github.com/stdlib-js/stdlib
 
@@ -263,9 +330,9 @@ Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/math/base/special/clampf]: https://github.com/stdlib-js/math-base-special-clampf/tree/umd
+[@stdlib/math/base/special/clampf]: https://github.com/stdlib-js/math-base-special-clampf
 
-[@stdlib/math/base/special/wrap]: https://github.com/stdlib-js/math-base-special-wrap/tree/umd
+[@stdlib/math/base/special/wrap]: https://github.com/stdlib-js/math-base-special-wrap
 
 <!-- </related-links> -->
 
